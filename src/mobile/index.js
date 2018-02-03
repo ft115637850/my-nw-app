@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { COLOR, ThemeProvider, Button, ListItem, Subheader } from 'react-native-material-ui';
+import { COLOR, ThemeProvider, Button } from 'react-native-material-ui';
 import {
 	StyleSheet,
 	View,
@@ -66,8 +66,8 @@ export default class App extends Component {
 						<Text style={styles.instructions}>
 						  {instructions}
 						</Text>
+						<Button raised={true} primary={true} text="Primary" />
 					</ScrollView>
-					<Button raised={true} primary={true} text="Primary" />
 				</View>
 			</ThemeProvider>
 		);
