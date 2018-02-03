@@ -39,17 +39,17 @@ const styles = StyleSheet.create({
 });
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+	ios: 'Press Cmd+R to reload,\n' +
+		'Cmd+D or shake for dev menu',
+	android: 'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu'
 });
 
 export default class App extends Component {
 	constructor() {
 		super();
 		if (Platform.OS === 'android') {
-		  UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+			UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 		}
 	}
 	render() {
@@ -57,15 +57,9 @@ export default class App extends Component {
 			<ThemeProvider uiTheme={uiTheme}>
 				<View style={styles.container}>
 					<ScrollView style={{flex: 1}}>
-						<Text style={styles.welcome}>
-						  Welcome to React Native!
-						</Text>
-						<Text style={styles.instructions}>
-						  To get started, edit App.js
-						</Text>
-						<Text style={styles.instructions}>
-						  {instructions}
-						</Text>
+						<Text style={styles.welcome}>Welcome to React Native!</Text>
+						<Text style={styles.instructions}>To get started, edit App.js</Text>
+						<Text style={styles.instructions}>{instructions}</Text>
 						<Button raised={true} primary={true} text="Primary" />
 					</ScrollView>
 				</View>
