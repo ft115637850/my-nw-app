@@ -8,9 +8,12 @@
 
 # caching
 /cache
+/android/.gradle
 
 # production
 /build
+/android/build
+/android/app/build
 
 # misc
 .DS_Store
