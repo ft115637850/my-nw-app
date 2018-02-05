@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { COLOR, ThemeProvider, Button } from 'react-native-material-ui';
+import { COLOR, ThemeProvider } from 'react-native-material-ui';
 import {
-	StyleSheet,
-	View,
-	Text,
-	ScrollView,
 	Platform,
 	UIManager
 } from 'react-native';
+import { Provider } from 'react-redux';
+import Demo from './demo';
+import createStoreWithEnhancers from '../reduxEnhancer';
 
 const uiTheme = {
 	palette: {
@@ -20,50 +19,21 @@ const uiTheme = {
 	}
 };
 
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center'
-	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5
-	}
-});
-
-const instructions = Platform.select({
-	ios: 'Press Cmd+R to reload,\n' +
-		'Cmd+D or shake for dev menu',
-	android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
-});
-
 export default class App extends Component {
 	constructor() {
 		super();
 		if (Platform.OS === 'android') {
 			UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 		}
+		this.store = createStoreWithEnhancers();
 	}
 	render() {
 		return (
-			<ThemeProvider uiTheme={uiTheme}>
-				<View style={styles.container}>
-					<ScrollView style={{flex: 1}}>
-						<Text style={styles.welcome}>Welcome to React Native!</Text>
-						<Text style={styles.instructions}>To get started, edit App.js</Text>
-						<Text style={styles.instructions}>{instructions}</Text>
-						<Button raised={true} primary={true} text="Primary" />
-					</ScrollView>
-				</View>
-			</ThemeProvider>
+			<Provider store={this.store}>
+				<ThemeProvider uiTheme={uiTheme}>
+					<Demo />
+				</ThemeProvider>
+			</Provider>
 		);
 	}
 }
