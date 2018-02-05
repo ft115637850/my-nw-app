@@ -1,10 +1,5 @@
 # my-nw-app
-This is Demo for cross platform app.
-Target OS:
-IOS
-Android
-Windows
-Ubuntu
+This is Demo for cross platform app. Target OS: IOS/Android/Windows/Ubuntu
 
 ## How to run
 #### Prerequisites
