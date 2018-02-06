@@ -5,7 +5,7 @@ import {
 	UIManager
 } from 'react-native';
 import { Provider } from 'react-redux';
-import Demo from './demo';
+import Demo from './Demo';
 import createStoreWithEnhancers from '../reduxEnhancer';
 
 const uiTheme = {
