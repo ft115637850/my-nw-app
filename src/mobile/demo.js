@@ -8,6 +8,7 @@ import {
 	ScrollView,
 	Platform
 } from 'react-native';
+import string from '../strings';
 import demoModule from '../modules/demo';
 const { actions, selectors } = demoModule;
 
@@ -16,6 +17,10 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'center',
 		alignItems: 'center'
+	},
+	buttonContainer: {
+		flex: 1,
+		flexDirection: 'row'
 	},
 	welcome: {
 		fontSize: 20,
@@ -30,10 +35,8 @@ const styles = StyleSheet.create({
 });
 
 const instructions = Platform.select({
-	ios: 'Press Cmd+R to reload,\n' +
-		'Cmd+D or shake for dev menu',
-	android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
+	ios: string.demo.ios,
+	android: string.demo.android
 });
 
 class Demo extends Component {
@@ -44,7 +47,10 @@ class Demo extends Component {
 					<Text style={styles.welcome}>Welcome to React Native!</Text>
 					<Text style={styles.instructions}>To get started, edit App.js</Text>
 					<Text style={styles.instructions}>{instructions}</Text>
-					<Button raised={true} primary={true} text="PING SERVER" onPress={() => this.props.pingServer()}/>
+					<View style={styles.buttonContainer}>
+						<Button raised={true} primary={true} text="PING" onPress={() => this.props.pingServer()}/>
+						<Button raised={true} primary={true} text="CLEAR" onPress={() => this.props.clearPing()}/>
+					</View>
 					<Text style={styles.instructions}>{this.props.pingResult}</Text>
 				</ScrollView>
 			</View>);
@@ -53,15 +59,14 @@ class Demo extends Component {
 
 const mapStateToProps = state => {
 	return {
-		pingResult: selectors.getPingResult(state),
-		isAuthenticated: selectors.isAuthenticated(state)
+		pingResult: selectors.getPingResult(state)
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
 		pingServer: () => dispatch(actions.pingServer()),
-		loginRequest: values => dispatch(actions.loginRequest(values))
+		clearPing: () => dispatch(actions.pingSuccess(''))
 	};
 };
 
