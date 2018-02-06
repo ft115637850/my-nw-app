@@ -76,7 +76,8 @@
     "platforms": [
       "osx64",
       "win32",
-      "win64"
+			"win64",
+			"linux64"
     ],
     "version": "latest",
     "buildDir": "./build",
