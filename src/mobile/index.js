@@ -5,7 +5,7 @@ import {
 	UIManager
 } from 'react-native';
 import { Provider } from 'react-redux';
-import Demo from './Demo';
+import Routes from './Routes';
 import createStoreWithEnhancers from '../reduxEnhancer';
 
 const uiTheme = {
@@ -31,7 +31,7 @@ export default class App extends Component {
 		return (
 			<Provider store={this.store}>
 				<ThemeProvider uiTheme={uiTheme}>
-					<Demo />
+					<Routes />
 				</ThemeProvider>
 			</Provider>
 		);
