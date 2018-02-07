@@ -5,9 +5,9 @@ import Demo from './Demo';
 
 const styles = StyleSheet.create({
 	container: {
-         flex: 1,
-         justifyContent: 'center',
-         alignItems: 'center',
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
 		marginTop: 25,
 		padding: 10
 	},
@@ -26,10 +26,9 @@ const styles = StyleSheet.create({
 });
 
 const Child = ({ match }) => (
-    <View style={styles.container}>
-	<Text>URL: /{match.params.id}</Text>
-    </View>
-);
+	<View style={styles.container}>
+		<Text>URL: /{match.params.id}</Text>
+	</View>);
 
 const ParamsExample = () => (
 	<NativeRouter>
