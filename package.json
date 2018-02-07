@@ -1,7 +1,8 @@
 {
   "name": "my-nw-app",
   "version": "0.1.0",
-  "private": true,
+	"private": true,
+	"window": { "icon": "./logo.png" },
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
