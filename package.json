@@ -44,6 +44,7 @@
     "react-native-material-ui": "^1.19.0",
     "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.6",
+    "react-router-native": "^4.2.0",
     "redux": "^3.7.2",
     "redux-create-reducer": "^1.1.1",
     "redux-form": "^7.2.3",
@@ -76,8 +77,8 @@
     "platforms": [
       "osx64",
       "win32",
-			"win64",
-			"linux64"
+      "win64",
+      "linux64"
     ],
     "version": "latest",
     "buildDir": "./build",
