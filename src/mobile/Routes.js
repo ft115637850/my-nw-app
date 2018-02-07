@@ -29,7 +29,7 @@ const Child = ({ match }) => (
 const ParamsExample = () => (
 	<NativeRouter>
 		<View style={styles.container}>
-			<Text style={styles.header}>Accounts</Text>
+			<Text style={styles.header}>Navigation</Text>
 			<View style={styles.nav}>
 				<Link
 					to="/"
@@ -67,7 +67,7 @@ const ParamsExample = () => (
 					<Text>Modus Create</Text>
 				</Link>
 			</View>
-			<Route path="/" component={Demo}/>
+			<Route exact={true} path="/" component={Demo}/>
 			<Route path="/:id" component={Child}/>
 		</View>
 	</NativeRouter>
