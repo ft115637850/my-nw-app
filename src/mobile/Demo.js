@@ -20,7 +20,9 @@ const styles = StyleSheet.create({
 	},
 	buttonContainer: {
 		flex: 1,
-		flexDirection: 'row'
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	welcome: {
 		fontSize: 20,
