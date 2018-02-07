@@ -18,6 +18,15 @@ function pingFailure(result) {
 	};
 }
 
+function goKioskMode(isKioskMode) {
+	return {
+		type: types.KIOSK,
+		payload: {
+			isKioskMode
+		}
+	};
+}
+
 function loginSuccess(token) {
 	return {
 		type: types.LOGIN_SUCCESS,
@@ -30,5 +39,6 @@ function loginSuccess(token) {
 export default {
 	pingSuccess,
 	pingFailure,
+	goKioskMode,
 	loginSuccess
 };

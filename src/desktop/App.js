@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { Provider } from 'react-redux';
-import Demo from './Demo';
+import Routes from './Routes';
 import createStoreWithEnhancers from '../reduxEnhancer';
 
 const muiTheme = {
@@ -21,7 +21,7 @@ class App extends Component {
 		return (
 			<Provider store={this.store}>
 				<MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-					<Demo />
+					<Routes />
 				</MuiThemeProvider>
 			</Provider>
 		);

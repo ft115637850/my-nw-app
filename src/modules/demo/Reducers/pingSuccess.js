@@ -4,7 +4,7 @@ function pingSuccess(state, action) {
 	const { pong } = action.payload;
 	return update(state, {
 		userData: {
-			$set: {
+			$merge: {
 				pong: pong
 			}
 		}

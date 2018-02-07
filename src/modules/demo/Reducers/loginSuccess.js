@@ -4,7 +4,7 @@ function loginSuccess(state, action) {
 	const { token } = action.payload;
 	return update(state, {
 		userData: {
-			$set: {
+			$merge: {
 				token: token,
 				isAuthenticated: true
 			}

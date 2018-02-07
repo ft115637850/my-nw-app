@@ -26,11 +26,6 @@ const styles = {
 };
 
 class Demo extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { isKioskMode: false };
-	}
-
 	render() {
 		return (
 			<div style={styles.container}>
@@ -38,13 +33,13 @@ class Demo extends Component {
 				<div style={styles.instructions}>To get started, edit App.js</div>
 				<p style={styles.instructions}>{Strings.demo.desktop}</p>
 				<div style={{display: 'flex'}}>
-					<RaisedButton label={this.state.isKioskMode ? 'Quit' : 'Kiosk'} primary={true} onClick={() => {
-						if (this.state.isKioskMode) {
+					<RaisedButton label={this.props.isKioskMode ? 'Quit' : 'Kiosk'} primary={true} onClick={() => {
+						if (this.props.isKioskMode) {
 							Gui.Window.get().leaveKioskMode();
-							this.setState({ isKioskMode: false });
+							this.props.updateKioskMode(false);
 						} else {
 							Gui.Window.get().enterKioskMode();
-							this.setState({ isKioskMode: true });
+							this.props.updateKioskMode(true);
 						}
 					}}
 					/>
@@ -59,13 +54,15 @@ class Demo extends Component {
 
 const mapStateToProps = state => {
 	return {
-		pingResult: selectors.getPingResult(state)
+		pingResult: selectors.getPingResult(state),
+		isKioskMode: selectors.isKioskMode(state)
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
 		pingServer: () => dispatch(actions.pingServer()),
+		updateKioskMode: isKioskMode => dispatch(actions.goKioskMode(isKioskMode)),
 		clearPing: () => dispatch(actions.pingSuccess(''))
 	};
 };
